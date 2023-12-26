@@ -1,0 +1,74 @@
+.glass {
+  backdrop-filter: blur(6px) saturate(99%);
+  -webkit-backdrop-filter: blur(6px) saturate(99%);
+  -moz-backdrop-filter: blur(6px) saturate(99%);
+  background-color: rgba(26, 26, 123, 0.68);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  color: white;
+  cursor: pointer;
+}
+
+.glass:hover {
+  background-color: rgba(12, 85, 85, 0.4);
+}
+
+.glass:active {
+  background-color: rgba(12, 85, 85, 0.6);
+}
+
+.glass:focus {
+  outline: none;
+}
+
+.glass:hover {
+  background-color: rgba(12, 85, 85, 0.4);
+}
+
+.glass:active {
+  background-color: rgba(12, 85, 85, 0.6);
+}
+
+.glass:focus {
+  outline: none;
+}
+
+.avatar {
+  border-radius: 50%;
+  height: 75px;
+  width: 75px;
+
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid #fffafa;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+.name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  word-break: break-all;
+  margin: 2px 0;
+}
+
+.username {
+  font-size: 1.25rem;
+  font-weight: 400;
+  word-break: break-all;
+  margin: 2px 0;
+}
+
+.jobTitle {
+  font-size: 1rem;
+  font-weight: 300;
+  word-break: break-all;
+  margin: 2px 0;
+}
+
+.noUsers {
+  font-size: 1.5rem;
+  font-weight: 600;
+  word-break: break-all;
+  margin: 2px 0;
+  color: #000;
+}
