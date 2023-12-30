@@ -23,9 +23,14 @@ const UserDetailsPopup = ({ selectedUser, onClose }) => (
     <DialogTitle
       sx={{
         textAlign: 'center',
+        marginBottom: '15px',
+        color: '#000',
+        fontWeight: 'bold',
+        fontSize: '1.5rem',
       }}
     >
-      User Details
+      {selectedUser &&
+        `${selectedUser.profile.firstName} ${selectedUser.profile.lastName}`}{' '}
     </DialogTitle>
     <DialogContent
       sx={{
@@ -36,18 +41,6 @@ const UserDetailsPopup = ({ selectedUser, onClose }) => (
         height: '100%',
       }}
     >
-      <Typography
-        variant="h5"
-        sx={{
-          textAlign: 'center',
-          marginBottom: '15px',
-          color: '#000',
-          fontWeight: 'bold',
-        }}
-      >
-        {selectedUser &&
-          `${selectedUser.profile.firstName} ${selectedUser.profile.lastName}`}
-      </Typography>
       <Avatar
         src={selectedUser && selectedUser.avatar}
         sx={{

@@ -49,11 +49,23 @@ const UserList = ({ users, onUserClick }) => {
           <Card onClick={() => onUserClick(user)} className="glass">
             <CardContent
               style={{
-                display: 'flex',
-                flexDirection: 'column',
+                // display: 'flex',
+                // flexDirection: 'column',
+                // alignItems: 'center',
+                // justifyContent: 'space-between',
+                // height: '100%',
+                // 1 * 2 Grid Spacing + 2 * 8 CardContent Padding + 1 * 8 Card Margin
+                display: 'grid',
+                gridTemplateColumns: ' 1fr 4fr',
                 alignItems: 'center',
-                justifyContent: 'space-between',
+                justifyItems: 'start',
                 height: '100%',
+                padding: '16px',
+
+                '&:hover': {
+                  cursor: 'pointer',
+                  backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                },
               }}
             >
               <Avatar
@@ -64,15 +76,15 @@ const UserList = ({ users, onUserClick }) => {
                   loading: 'lazy',
                 }}
               />
-              <div style={{ textAlign: 'center' }}>
+              <div style={{ textAlign: 'start' }}>
                 <Typography variant="h5" className="name">
                   {`${user.profile.firstName} ${user.profile.lastName}`}
                 </Typography>
-                <Typography variant="body2" className="username">
-                  {user.profile.username}
-                </Typography>
                 <Typography variant="body2" className="jobTitle">
                   {user.jobTitle}
+                </Typography>{' '}
+                <Typography variant="body2" className="username">
+                  {user.profile.username}
                 </Typography>
               </div>
             </CardContent>
