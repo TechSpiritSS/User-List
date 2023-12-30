@@ -1,4 +1,12 @@
-import { CircularProgress, Container, Grid, Typography } from '@mui/material';
+import {
+  CircularProgress,
+  Container,
+  CssBaseline,
+  Grid,
+  ThemeProvider,
+  Typography,
+  createTheme,
+} from '@mui/material';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import UserDetailsPopup from './components/UserDetails';
@@ -33,54 +41,63 @@ const App = () => {
     setSelectedUser(null);
   };
 
+  const theme = createTheme({
+    typography: {
+      fontFamily: ['Poppins', 'sans-serif'].join(','),
+    },
+  });
+
   return (
-    <Container
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        minHeight: '100vh',
-        overflow: 'hidden',
-        marginTop: '25px',
-      }}
-    >
-      <Typography
-        variant="h4"
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Container
         sx={{
-          textAlign: 'center',
-          marginBottom: '25px',
-          color: '#000',
-          fontWeight: 'bold',
-        }}
-      >
-        Users
-      </Typography>
-      <Grid
-        container
-        spacing={2}
-        sx={{
-          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          minHeight: '100vh',
           overflow: 'hidden',
+          marginTop: '25px',
         }}
       >
-        <Grid
-          item
-          xs={12}
+        <Typography
+          variant="h4"
           sx={{
-            height: '100%',
+            textAlign: 'center',
+            marginBottom: '25px',
+            color: '#000',
+            fontWeight: 'bold',
           }}
         >
-          {loading ? (
-            <CircularProgress />
-          ) : (
-            <UserList users={users} onUserClick={handleUserClick} />
-          )}
+          Users
+        </Typography>
+        <Grid
+          container
+          spacing={2}
+          sx={{
+            flex: 1,
+            overflow: 'hidden',
+          }}
+        >
+          <Grid
+            item
+            xs={12}
+            sx={{
+              height: '100%',
+            }}
+          >
+            {loading ? (
+              <CircularProgress />
+            ) : (
+              <UserList users={users} onUserClick={handleUserClick} />
+            )}
+          </Grid>
         </Grid>
-      </Grid>
-      <UserDetailsPopup
-        selectedUser={selectedUser}
-        onClose={handleCloseDetailsPopup}
-      />
-    </Container>
+        <UserDetailsPopup
+          selectedUser={selectedUser}
+          onClose={handleCloseDetailsPopup}
+        />
+      </Container>{' '}
+    </ThemeProvider>
   );
 };
 
